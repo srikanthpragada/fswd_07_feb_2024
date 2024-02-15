@@ -13,14 +13,25 @@
                 if (num % i === 0)
                     output = output + `<li>${i}</li>`
             }
-            document.getElementById("factors").innerHTML = output
+
+            var factors = document.getElementById("factors")
+            var msg = document.getElementById("msg")
+
+            // clear all 
+            factors.innerHTML = ""
+            msg.innerText = ""
+
+            if (output === "") // no factors found 
+                msg.innerText = "Sorry! No factors found as it is prime number!"
+            else
+                factors.innerHTML = output
         }
     </script>
 </head>
 
 <body>
     <h2>Factors</h2>
-    Number : <input type="number" id="txtNum" />
+    Number : <input type="number" id="txtNum" /> <span style="color:red" id="msg"></span>
     <p></p>
     <button onClick="showFactors()">Show</button>
     <p></p>
