@@ -11,16 +11,16 @@
             var price = parseInt(document.getElementById("txtPrice").value)
             var amount = qty * price
 
-            let disRate = 10  
+            let disRate = 10
 
-            if (qty > 3 )
+            if (qty > 3)
                 disRate = 20
             else
-              if(qty > 2)
-                 disRate = 15
-              
-            var discount = amount * disRate / 100 
-            var netAmount = amount - discount 
+                if (qty > 2)
+                    disRate = 15
+
+            var discount = amount * disRate / 100
+            var netAmount = amount - discount
             var result = document.getElementById("result")
             result.innerText = netAmount
         }
@@ -30,11 +30,11 @@
 <body>
     <h2>Net price Calculation</h2>
     Quantity
-    <br/>
-    <input type="number" id="txtQuantity"/>
+    <br />
+    <input type="number" id="txtQuantity" />
     <p></p>
-    Price 
-    <br/>
+    Price
+    <br />
     <input type="number" id="txtPrice" />
     <p></p>
     <button onclick="netAmount()">Net Price</button>
