@@ -1,0 +1,34 @@
+select fullname, salary from employees
+where dept_id = 'IT'
+
+select * from employees
+where  salary is null
+
+select * from employees
+where  fullname like 'S%'
+
+select * from employees
+where  fullname like '_c%'
+
+select * from employees
+order by salary desc
+
+select * from employees
+order by dept_id, salary
+
+select * from employees
+order by salary desc
+limit 3  
+
+select sum(salary) from employees
+
+select sum(salary), count(*) from employees
+
+
+select dept_id, avg(salary)
+from employees
+group by dept_id
+
+select fullname, dept_name
+from employees join departments 
+using (dept_id)
