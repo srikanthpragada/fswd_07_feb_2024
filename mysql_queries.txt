@@ -32,3 +32,42 @@ group by dept_id
 select fullname, dept_name
 from employees join departments 
 using (dept_id)
+
+select fullname, dept_name
+from employees as e join departments  as d
+on e.dept_id = d.dept_id
+
+select fullname, e.dept_id, dept_name, salary
+from employees as e join departments  as d
+on e.dept_id = d.dept_id
+
+
+select date_add(curdate(), interval 10 day)
+select datediff(curdate(), '2024-1-1')
+
+select date_format(curdate(), '%d-%m-%Y')
+
+select datediff(curdate(), str_to_date('01-01-2024','%d-%m-%Y'))
+
+select dept_name, sum(salary)
+from employees join departments using (dept_id)
+group by dept_name
+
+
+insert into employees (fullname, dept_id, salary)
+  values('Rosum','it', 2000000)
+
+select * from employees
+
+update employees set salary = 2500000, fullname = 'Rossum'
+where emp_id = 11
+
+delete from employees where emp_id = 11
+
+select * from departments
+where dept_id in 
+	(
+	select dept_id
+	from employees 
+	where salary < 500000
+	)
