@@ -2,7 +2,7 @@ function isEven(n) {
     return n % 2 === 0
 }
 
-exports.nextEven = function(n) {
+function nextEven(n){
     if (isEven(n))
         return n + 2
     else
@@ -11,3 +11,4 @@ exports.nextEven = function(n) {
 
 exports.PI = 3.14 
 exports.isEven = isEven 
+exports.nextEven = nextEven 
