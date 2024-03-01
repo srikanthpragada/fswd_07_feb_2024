@@ -8,7 +8,7 @@ fs.readFile(__dirname + "/names.txt", "utf-8",
         else {
             // write to names2.txt
             fs.writeFile(__dirname + "/names2.txt", data,
-                 () => console.log("Copied!"))
+                     () => console.log("Copied!"))
         }
     })
 

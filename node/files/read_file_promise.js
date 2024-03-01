@@ -1,6 +1,6 @@
 const fs = require("fs").promises
 
-let p = fs.readFile(__dirname + "/names.txt", "utf-8")
+let p = fs.readFile(__dirname + "/names.tx", "utf-8")
 
 p.then (data => console.log(data))     // fulfilled 
 p.catch(error => console.log(error))   // reject
