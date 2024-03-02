@@ -6,7 +6,5 @@ let p = new Promise(
     }
 )
 
-console.log(p)
-p.then(() => console.log("Success"))
-p.catch(() => console.log("Error"))
 
+p.then(() => console.log("Success"), error => console.log("Error"))

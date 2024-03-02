@@ -21,11 +21,12 @@ function exists(main_str, sub_str) {
     return main_str.includes(sub_str)
 }
 
-// Testing 
+// Testing
 // console.log(containsUpper('Abc'))
 // console.log(exists('Hello', 'Lo'))
 
 // module.exports.containsUpper = containsUpper
 // module.exports.exists = exists
 
+//exports =  { containsUpper, exists, countUpper }
 module.exports = { containsUpper, exists, countUpper }

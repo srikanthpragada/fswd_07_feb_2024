@@ -1,6 +1,6 @@
 const fs = require("fs").promises
 
-let p = fs.readFile(__dirname + "/names.txt", "utf-8")
+let p = fs.readFile(__dirname + "/names3.txt", "utf-8")
 
 p.then(data => {
     console.log("Read file!")
@@ -8,8 +8,7 @@ p.then(data => {
     np.then(() => console.log("Copied!!!"))
     np.catch( (err) => console.log("Error while writing!"))
 }
-)
-p.catch((error) => console.log("Error while reading!"))
+,(error) => console.log("Error while reading!"))
 
 
 

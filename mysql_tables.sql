@@ -1,3 +1,5 @@
+alter user 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mysql';
+
 create database feb7;
 
 use feb7;
