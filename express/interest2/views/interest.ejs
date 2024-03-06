@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Interest</title>
+</head>
+
+<body>
+  <h1>Interest Calculation</h1>
+  <form action="interest">
+    Amount <br />
+    <input type="number" name="amount" required value="<%=amount%>" />
+    <p></p>
+    <button>Calculate</button>
+  </form>
+
+  <% if (interest > 0) { %>
+    <h2>Interest : <%= interest%> </h2>
+  <% } %>
+</body>
+
+</html>
