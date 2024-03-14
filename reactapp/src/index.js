@@ -2,13 +2,15 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import MyButtons from './props/MyButtons';
+
+ 
+import EventsCC from './basics/EventsCC';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <MyButtons  title = "Properties Demo" />
+    <EventsCC />
   </React.StrictMode>
 );
 
