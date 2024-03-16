@@ -15,7 +15,13 @@ function AddSkill({ addSkill }) {
     )
 }
 
-function ListSkills({ skills }) {
+function ListSkills({ skills, deleteSkill }) {
+
+    function deleteOneSkill(idx) {
+        if (window.confirm("Do you want to delete?"))
+            deleteSkill(idx)
+    }
+
     return (
         <>
             <ul>
@@ -24,7 +30,7 @@ function ListSkills({ skills }) {
                         <li className="mb-2" key={idx}>
                             {s}
                             &nbsp;
-                            <button className="btn btn-sm btn-danger">Delete</button>
+                            <button onClick={() => deleteOneSkill(idx)} className="btn btn-link">Delete</button>
                         </li>)
                 }
             </ul>
@@ -39,12 +45,16 @@ export default function TechSkills() {
         setSkills([...skills, skill])
     }
 
+    function deleteSkill(idxToDelete) {
+        setSkills(skills.filter((s, idx) => idx !== idxToDelete))
+    }
+
     return (
         <>
             <h1>Skills</h1>
             <AddSkill addSkill={addSkill} />
             <p></p>
-            <ListSkills skills={skills} />
+            <ListSkills skills={skills} deleteSkill={deleteSkill} />
         </>
     )
 }
