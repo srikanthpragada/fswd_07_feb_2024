@@ -12,5 +12,5 @@ console.log(fnInner1(20))
 
 
 fnInner2 = outer(20)
-console.log(fnInner2(20))
+console.log(fnInner2(30))
  

@@ -34,7 +34,6 @@ export default function Interest() {
                     interest > 0 && <h2> Interest  = {interest} </h2>
                 }
             </form>
-
         </>
     )
 }
