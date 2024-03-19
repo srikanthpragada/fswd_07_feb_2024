@@ -2,13 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import PropsDrilling from './context/PropsDrilling';
+import JQueryDemo from './ajax/JQueryDemo';
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-     <PropsDrilling />
+    <JQueryDemo />
   </React.StrictMode>
 );
 
