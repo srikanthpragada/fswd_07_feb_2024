@@ -1,10 +1,10 @@
 var express = require('express');
 var db = require("./booksDatabase")
 
-async function getBooks(req,res) {
+async function getBooks(req, res) {
   try {
     let books = await db.getBooks()
-    res.json(books)
+    res.json(books) // send books in the form of JSON to client
   }
   catch (err) {
     res.status(500).send("Error : " + err.message)
@@ -22,7 +22,8 @@ async function getBooksByAuthor(req, res) {
   }
 }
 
-async function getBookById(req,res) {
+//  /books/102
+async function getBookById(req, res) {
   try {
     let book = await db.getBookById(req.params.id)
     if (book)
@@ -35,7 +36,7 @@ async function getBookById(req,res) {
   }
 }
 
-// Querystring - title 
+// Querystring - title   /books/search?title=work
 async function searchBooks(req, res) {
   try {
     let books = await db.searchBooks(req.query.title)
@@ -49,8 +50,12 @@ async function searchBooks(req, res) {
 
 async function addBook(req, res) {
   try {
-    await db.addBook(req.body.title, req.body.author, req.body.price)
-    res.status(201).send("Book Added!")
+    if (req.body.title && req.body.author && req.body.price) {
+      await db.addBook(req.body.title, req.body.author, req.body.price)
+      res.status(201).send("Book Added!")
+    }
+    else
+      res.status(400).send("Missing title or author or price")
   }
   catch (err) {
     res.status(500).send("Error : " + err.message)
@@ -59,11 +64,15 @@ async function addBook(req, res) {
 
 async function updateBook(req, res) {
   try {
-    updated = await db.updateBook(req.params.id, req.body)
-    if (updated)
-      res.status(200).send("Book Updated!")
+    if (req.body.title && req.body.author && req.body.price && req.body.price >= 0) {
+      updated = await db.updateBook(req.params.id, req.body)
+      if (updated)
+        res.status(200).send("Book Updated!")
+      else
+        res.status(404).send("Book Id Not Found!")
+    }
     else
-      res.status(404).send("Book Id Not Found!")
+      res.status(400).send("Missing title or author or price")
   }
   catch (err) {
     res.status(500).send("Error : " + err.message)
@@ -73,7 +82,7 @@ async function updateBook(req, res) {
 async function deleteBook(req, res) {
   try {
     let deleted = await db.deleteBook(req.params.id)
-    if(deleted)
+    if (deleted)
       res.status(204).send("Book Deleted!")
     else
       res.status(404).send("Book Id Not Found!")
@@ -104,4 +113,4 @@ module.exports = {
   getAuthorsBooksCount,
   getBooksByAuthor
 }
- 
+

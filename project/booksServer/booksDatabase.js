@@ -5,7 +5,7 @@ var pool = mysql.createPool({
     host: "localhost",
     user: "root",
     password: "mysql",
-    database: "nov17"
+    database: "feb7"
 });
 
 async function getBooks() {
@@ -33,7 +33,8 @@ async function searchBooks(title) {
 }
 
 async function addBook(title, author, price) {
-    let book = await pool.execute("insert into books(title, author, price) values(?,?,?)", [title, author, price])
+    let book = await pool.execute("insert into books(title, author, price) values(?,?,?)",
+                                  [title, author, price])
     return book
 }
 
@@ -43,7 +44,7 @@ async function updateBook(id, book) {
     if (result.affectedRows === 1)
         return true
     else
-        return false
+        return false // Book id not found 
 }
 
 async function deleteBook(id) {
