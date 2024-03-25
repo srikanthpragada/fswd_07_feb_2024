@@ -18,7 +18,7 @@ export default function BookDetails() {
                 }
             }
         )
-    }, [bookId])
+    }, [bookId]) // Invoke callback whenever bookId is different 
 
     return (
         <>

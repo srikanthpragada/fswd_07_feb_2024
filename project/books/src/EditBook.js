@@ -25,7 +25,7 @@ export default function EditBook() {
     }
 
     function cancelUpdate(e) {
-        e.preventDefault()
+        e.preventDefault()  // Cancel form submission
         navigate("/list")  // Programmatic Navigation
     }
 
@@ -43,6 +43,7 @@ export default function EditBook() {
                     alert("Book updated successfully!")
                 },
                 error: function (error) {
+                    console.log(error)
                     alert("Sorry! Could not update book! Please try again!")
                 }
             }

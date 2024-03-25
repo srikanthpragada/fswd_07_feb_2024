@@ -6,6 +6,7 @@ import AddBookFetch from "./AddBookFetch"
 import BookDetails from "./BookDetails"
 import SearchBooks from './SearchBooks'
 import EditBook from "./EditBook"
+import About from "./About"
 import ListBooksByAuthor from "./ListBooksByAuthor";
 
 import {
@@ -15,9 +16,6 @@ import {
     Link,
     Outlet
 } from "react-router-dom";
-
-
-
 
 export default function Books() {
     return (
@@ -34,6 +32,7 @@ export default function Books() {
                     <Route path="details/:bookId" element={<BookDetails />} />
                     <Route path="authors" element={<ListAuthors />} />
                     <Route path="booksByAuthor/:author" element={<ListBooksByAuthor />} />
+                    <Route path="about" element={ <About /> } />
                     <Route path="*" element={
                         <h3>Sorry! Page Not Found!!!</h3>
                     } />
@@ -54,9 +53,11 @@ function Layout() {
                 <Link className="nav-link text-white" to="/authors">Authors</Link>
                 <Link className="nav-link text-white" to="/add">Add Book</Link>
                 <Link className="nav-link text-white" to="/addfetch">Add Book With Fetch</Link>
+                <Link className="nav-link text-white" to="/about">About</Link>
             </nav>
 
             <p></p>
+
             <Outlet />
 
         </div>
