@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import $ from 'jquery'
 import { BOOKS_URL } from './constants'
 import { useNavigate } from 'react-router-dom'
 
@@ -57,7 +56,9 @@ export default function AddBookFetch() {
 
         <div className="form-group">
           <label for="txtPrice">Price</label>
-          <input id="txtPrice" className="form-control" type="number" value={book.price} onChange={changeValue} name="price" />
+          <input id="txtPrice" className="form-control" type="number"  
+              min="0"
+              value={book.price} onChange={changeValue} name="price" />
         </div>
         <p></p>
         <button className="btn btn-primary">Add Book</button>

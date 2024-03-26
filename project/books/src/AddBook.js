@@ -16,7 +16,7 @@ export default function AddBook() {
       {
         url: BOOKS_URL,
         method: 'post',
-        data: JSON.stringify(book),
+        data: JSON.stringify(book),   // JS to JSON
         contentType: 'application/json; charset=utf-8',
         success: function () {
           alert("Book added successfully!")
@@ -58,12 +58,14 @@ export default function AddBook() {
 
         <div className="form-group">
           <label for="txtAuthor">Author</label>
-          <input id="txtAuthor" className="form-control" type="text" value={book.author} required onChange={changeValue} name="author" />
+          <input id="txtAuthor" className="form-control" type="text" value={book.author}
+                required onChange={changeValue} name="author" />
         </div>
 
         <div className="form-group">
           <label for="txtPrice">Price</label>
-          <input id="txtPrice" className="form-control"  type="number" value={book.price} onChange={changeValue} name="price" />
+          <input id="txtPrice" className="form-control" min="0"
+                type="number" value={book.price} onChange={changeValue} name="price" />
         </div>
         <p></p>
         <button className="btn btn-primary">Add Book</button>
